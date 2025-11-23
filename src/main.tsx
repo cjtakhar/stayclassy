@@ -7,7 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     {/* basename should match your GitHub repo name */}
-    <BrowserRouter basename="/stayclassy">
+    <BrowserRouter>
       <App />
     </BrowserRouter>
   </React.StrictMode>
