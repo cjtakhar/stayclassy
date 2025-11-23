@@ -1,8 +1,12 @@
 // src/App.tsx
 import React, { useState } from "react";
 import heroImage from "./assets/classyai-lg.jpg";
+import { LuMessageSquare } from "react-icons/lu";
+import { IoPersonCircleSharp } from "react-icons/io5";
 
-const CONTACT_EMAIL = "you@example.com"; // 👈 change this
+
+
+const CONTACT_EMAIL = "cjtakhar@gmail.com";
 
 const App: React.FC = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -49,11 +53,6 @@ const App: React.FC = () => {
       {/* NAV */}
       <header className="nav">
         <div className="nav-logo">Classy AI</div>
-        <nav className="nav-links">
-          <a href="#features">Features</a>
-          <a href="#how-it-works">How it works</a>
-          <a href="#contact">Contact</a>
-        </nav>
         <button
           className="nav-cta"
           onClick={() =>
@@ -74,8 +73,7 @@ const App: React.FC = () => {
           <div className="hero-content">
             <h1>Elevate Your Intelligence</h1>
             <p>
-              Ethical AI that teaches you how to think, not what to think. Learn
-              computer science the Classy way.
+              Ethical AI that teaches you how to think. Not what to think. 
             </p>
             <div className="hero-actions">
               <button
@@ -88,34 +86,32 @@ const App: React.FC = () => {
               >
                 Join the Waitlist
               </button>
-              <button className="btn-secondary">View Demo</button>
+              {/* <button className="btn-secondary">View Demo</button> */}
             </div>
           </div>
         </section>
 
         {/* FEATURES */}
         <section id="features" className="section">
-          <h2>Why Classy AI</h2>
+          <h2>Built at the Harvard Innovation Lab</h2>
           <div className="feature-grid">
             <div className="feature-card">
               <h3>Socratic Tutoring</h3>
               <p>
-                Guided questions that help you actually understand algorithms
-                and data structures.
+                Guided questions that help you actually understand concepts instead of answering for you.
               </p>
             </div>
             <div className="feature-card">
               <h3>Ethical by Design</h3>
               <p>
-                Built to avoid cheating and instead amplify your ability to
-                learn.
+                Built to increase critical thinking and amplify your ability to
+                learn —— Not replace it.
               </p>
             </div>
             <div className="feature-card">
-              <h3>Developer Friendly</h3>
+              <h3>Machine Learning </h3>
               <p>
-                Integrate with your existing study workflows, notes, and problem
-                sets.
+                Powered by a custom Llama-3.2-3B model trained in house using Tinker by Thinking Machines Lab.
               </p>
             </div>
           </div>
@@ -124,8 +120,8 @@ const App: React.FC = () => {
         {/* CONTACT – “halfway down” */}
         <section id="contact" className="contact-section">
           <div className="contact-inner">
-            <h2>Contact Us</h2>
-            <p className="contact-subtitle">Drop us a line!</p>
+            <h2>Get on the list</h2>
+            <p className="contact-subtitle">Supercharge your learning.</p>
 
             <form className="contact-form" onSubmit={handleContactSubmit}>
               <input
@@ -140,12 +136,6 @@ const App: React.FC = () => {
                 placeholder="Email*"
                 required
                 className="contact-input"
-              />
-              <textarea
-                name="message"
-                placeholder="Message"
-                rows={6}
-                className="contact-textarea"
               />
               <div className="contact-bottom-row">
                 <label className="contact-checkbox">
@@ -171,30 +161,78 @@ const App: React.FC = () => {
         {isChatOpen && (
           <div className="chat-panel">
             <div className="chat-header">
-              <span>Chat with Classy AI</span>
               <button
-                className="chat-close"
+                className="chat-header-icon chat-header-back"
+                type="button"
+                aria-label="Close chat"
                 onClick={() => setIsChatOpen(false)}
               >
-                ×
+                ←
+              </button>
+              <span>Contact Us</span>
+              <button
+                className="chat-header-icon chat-header-collapse"
+                type="button"
+                aria-label="Collapse chat"
+                onClick={() => setIsChatOpen(false)}
+              >
+                ˅
               </button>
             </div>
-            <form className="chat-form" onSubmit={handleChatSubmit}>
+
+            <div className="chat-hero">
+              <div className="chat-avatar"><IoPersonCircleSharp size={60}/>
+</div>
+              <p className="chat-status">
+                "We usually reply in a few minutes at this time of day."
+              </p>
+            </div>
+
+            <div className="chat-body">
+              <div className="chat-message-card">
+                <p className="chat-message-text">
+                  Let me know if you have any questions!
+                </p>
+                <button
+                  type="button"
+                  className="chat-quick-button"
+                  onClick={() => {
+                    const el = document.querySelector(
+                      "input[name='chatMessage']"
+                    ) as HTMLInputElement | null;
+                    if (el) {
+                      el.value = "I have a question about…";
+                      el.focus();
+                    }
+                  }}
+                >
+                  I have a question
+                </button>
+                <div className="chat-meta">Classy AI · 1:05 PM</div>
+              </div>
+            </div>
+
+            <form className="chat-input-bar" onSubmit={handleChatSubmit}>
               <input
-                name="chatEmail"
-                type="email"
-                placeholder="Your email (optional)"
-                className="chat-input"
-              />
-              <textarea
                 name="chatMessage"
-                placeholder="Type your message..."
-                rows={3}
-                className="chat-textarea"
+                type="text"
+                className="chat-input-field"
+                placeholder="Enter your question or message here"
                 required
               />
-              <button type="submit" className="chat-submit">
-                Send
+              <button
+                type="button"
+                className="chat-icon-button"
+                aria-label="Attach file"
+              >
+                📎
+              </button>
+              <button
+                type="submit"
+                className="chat-send-button"
+                aria-label="Send message"
+              >
+                ➤
               </button>
             </form>
           </div>
@@ -205,7 +243,7 @@ const App: React.FC = () => {
           onClick={() => setIsChatOpen((o) => !o)}
           aria-label="Open chat"
         >
-          💬
+          <LuMessageSquare size={26} />
         </button>
       </div>
     </div>
