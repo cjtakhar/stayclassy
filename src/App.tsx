@@ -4,9 +4,11 @@ import heroImage from "./assets/classyai-lg.jpg";
 import { LuMessageSquare } from "react-icons/lu";
 import { IoPersonCircleSharp } from "react-icons/io5";
 
-// At top of App.tsx (outside the component)
 const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL || "http://localhost:5001";
+  import.meta.env.VITE_API_BASE_URL ||
+  (window.location.hostname === "localhost"
+    ? "http://localhost:5001"
+    : "https://classy-contact-api.onrender.com");
 
 const postMessage = async (payload: {
   email: string;
