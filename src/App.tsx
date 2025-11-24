@@ -165,7 +165,7 @@ const App: React.FC = () => {
         {/* CONTACT – “halfway down” */}
         <section id="contact" className="contact-section">
           <div className="contact-inner">
-            <h2>Get on the list</h2>
+            <h2>Join the list.</h2>
 
             <form className="contact-form" onSubmit={handleContactSubmit}>
               <input
