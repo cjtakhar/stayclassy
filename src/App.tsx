@@ -4,6 +4,27 @@ import heroImage from "./assets/classyai-lg.jpg";
 import { LuMessageSquare } from "react-icons/lu";
 import { IoPersonCircleSharp } from "react-icons/io5";
 
+// At top of App.tsx (outside the component)
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL || "http://localhost:5001";
+
+const postMessage = async (payload: {
+  email: string;
+  message: string;
+  source: "contact" | "chat";
+}) => {
+  const res = await fetch(`${API_BASE_URL}/api/contact`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to send message");
+  }
+};
+
+
 const App: React.FC = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
 
@@ -16,23 +37,6 @@ const App: React.FC = () => {
   const showToast = (message: string, type: "success" | "error" = "success") => {
     setToast({ message, type });
     setTimeout(() => setToast(null), 4000); // auto-hide after 4s
-  };
-
-  // Helper to send messages to your backend instead of using mailto:
-  const postMessage = async (payload: {
-    email: string;
-    message: string;
-    source: "contact" | "chat";
-  }) => {
-    const res = await fetch("http://localhost:5001/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
-
-    if (!res.ok) {
-      throw new Error("Failed to send message");
-    }
   };
 
   const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {

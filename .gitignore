@@ -22,3 +22,20 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# env
+.env
+.env.*.local
+.env.local
+.env.test
+.env.production
+.env.staging
+.env.development
+.env.test.local
+.env.production.local
+.env.staging.local
+.env.development.local      
