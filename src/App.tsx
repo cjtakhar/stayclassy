@@ -70,6 +70,7 @@ const App: React.FC = () => {
           <div className="hero-overlay" />
           <div className="hero-content">
             <h1>Elevate Your Intelligence</h1>
+            <h3>Socrates v1.0</h3>
             <p>Ethical AI that teaches you how to think. Not what to think.</p>
             <div className="hero-actions">
               <button
@@ -87,7 +88,7 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        {/* FEATURES */}
+        
         <section id="features" className="section">
           <h2 className="section-title">
             <a
@@ -105,10 +106,11 @@ const App: React.FC = () => {
           </h2>
           <div className="feature-grid">
             <div className="feature-card">
+              
               <h3>Socratic Tutoring</h3>
               <p>
-                Guided questions that help you actually understand concepts
-                instead of answering for you.
+                Guided questions that help you understand complex concepts
+                instead of just answering for you.
               </p>
             </div>
             <div className="feature-card">
