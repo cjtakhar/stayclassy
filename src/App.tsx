@@ -4,46 +4,79 @@ import heroImage from "./assets/classyai-lg.jpg";
 import { LuMessageSquare } from "react-icons/lu";
 import { IoPersonCircleSharp } from "react-icons/io5";
 
-const CONTACT_EMAIL = "cjtakhar@gmail.com";
-
 const App: React.FC = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
 
-  const sendEmail = (subject: string, body: string) => {
-    const mailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
+  // 🔔 Toast state
+  const [toast, setToast] = useState<{
+    message: string;
+    type: "success" | "error";
+  } | null>(null);
+
+  const showToast = (message: string, type: "success" | "error" = "success") => {
+    setToast({ message, type });
+    setTimeout(() => setToast(null), 4000); // auto-hide after 4s
   };
 
-  const handleContactSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  // Helper to send messages to your backend instead of using mailto:
+  const postMessage = async (payload: {
+    email: string;
+    message: string;
+    source: "contact" | "chat";
+  }) => {
+    const res = await fetch("http://localhost:5001/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+
+    if (!res.ok) {
+      throw new Error("Failed to send message");
+    }
+  };
+
+  const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
-    const name = (data.get("name") as string) || "";
     const email = (data.get("email") as string) || "";
-    const message = (data.get("message") as string) || "";
 
-    const subject = `New message from Classy AI contact form`;
-    const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
-
-    sendEmail(subject, body);
-    form.reset();
+    try {
+      await postMessage({
+        email,
+        message: `New waitlist signup from: ${email}`,
+        source: "contact",
+      });
+      // ✅ Toast instead of alert
+      showToast("You're on the Classy AI waitlist ✨", "success");
+      form.reset();
+    } catch (err) {
+      console.error(err);
+      showToast("Sorry, something went wrong. Please try again.", "error");
+    }
   };
 
-  const handleChatSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleChatSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
     const email = (data.get("chatEmail") as string) || "";
     const message = (data.get("chatMessage") as string) || "";
 
-    const subject = `New message from Classy AI chat bubble`;
-    const body = `From chat widget\nEmail: ${email}\n\nMessage:\n${message}`;
-
-    sendEmail(subject, body);
-    form.reset();
-    setIsChatOpen(false);
+    try {
+      await postMessage({
+        email,
+        message,
+        source: "chat",
+      });
+      // ✅ Toast instead of alert
+      showToast("Message sent! We’ll get back to you soon 💌", "success");
+      form.reset();
+      setIsChatOpen(false);
+    } catch (err) {
+      console.error(err);
+      showToast("Couldn’t send your message. Please try again.", "error");
+    }
   };
 
   return (
@@ -88,7 +121,6 @@ const App: React.FC = () => {
           </div>
         </section>
 
-        
         <section id="features" className="section">
           <h2 className="section-title">
             <a
@@ -99,18 +131,15 @@ const App: React.FC = () => {
               style={{
                 color: "inherit",
                 textDecoration: "none",
-              }}  
+              }}
             >
               Built at Harvard Innovation Labs
             </a>
           </h2>
           <div className="feature-grid">
             <div className="feature-card">
-              
               <h3>Socratic Methodology</h3>
-              <p>
-                Guided questions that help you understand complex concepts.
-              </p>
+              <p>Guided questions that help you understand complex concepts.</p>
             </div>
             <div className="feature-card">
               <h3>Ethical by Design</h3>
@@ -122,8 +151,8 @@ const App: React.FC = () => {
             <div className="feature-card">
               <h3>Machine Learning </h3>
               <p>
-                Custom Llama-3.2-3B model trained with
-                Tinker by Thinking Machines Lab.
+                Custom Llama-3.2-3B model trained with Tinker by Thinking
+                Machines Lab.
               </p>
             </div>
           </div>
@@ -207,39 +236,70 @@ const App: React.FC = () => {
                       "input[name='chatMessage']"
                     ) as HTMLInputElement | null;
                     if (el) {
-                      el.value = "I have a question about…";
                       el.focus();
                     }
                   }}
                 >
                   I have a question
                 </button>
-                <div className="chat-meta">Classy AI · 1:05 PM</div>
+
+                <div className="chat-meta">Classy AI</div>
               </div>
             </div>
 
-            <form className="chat-input-bar" onSubmit={handleChatSubmit}>
+            <form
+              className="chat-input-bar"
+              onSubmit={handleChatSubmit}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: 10,
+                padding: "12px",
+                background: "transparent",
+              }}
+            >
+              {/* Message box */}
               <input
                 name="chatMessage"
                 type="text"
-                className="chat-input-field"
-                placeholder="Enter your question or message here"
+                className="chat-input-field chat-box"
+                placeholder="Enter your question here"
                 required
               />
-              <button
-                type="button"
-                className="chat-icon-button"
-                aria-label="Attach file"
+
+              {/* Email box */}
+              <input
+                name="chatEmail"
+                type="email"
+                className="chat-input-field chat-box"
+                placeholder="Your email so we can get back to you"
+                required
+              />
+
+              {/* Buttons */}
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  marginTop: "4px",
+                }}
               >
-                📎
-              </button>
-              <button
-                type="submit"
-                className="chat-send-button"
-                aria-label="Send message"
-              >
-                ➤
-              </button>
+                <button
+                  type="button"
+                  className="chat-icon-button"
+                  aria-label="Attach file"
+                >
+                  📎
+                </button>
+                <button
+                  type="submit"
+                  className="chat-send-button"
+                  aria-label="Send"
+                >
+                  ➤
+                </button>
+              </div>
             </form>
           </div>
         )}
@@ -252,6 +312,13 @@ const App: React.FC = () => {
           <LuMessageSquare size={26} />
         </button>
       </div>
+
+      {/* 🔔 Toast renderer */}
+      {toast && (
+        <div className={`toast toast-${toast.type}`}>
+          {toast.message}
+        </div>
+      )}
     </div>
   );
 };
