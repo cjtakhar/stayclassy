@@ -4,8 +4,6 @@ import heroImage from "./assets/classyai-lg.jpg";
 import { LuMessageSquare } from "react-icons/lu";
 import { IoPersonCircleSharp } from "react-icons/io5";
 
-
-
 const CONTACT_EMAIL = "cjtakhar@gmail.com";
 
 const App: React.FC = () => {
@@ -72,9 +70,7 @@ const App: React.FC = () => {
           <div className="hero-overlay" />
           <div className="hero-content">
             <h1>Elevate Your Intelligence</h1>
-            <p>
-              Ethical AI that teaches you how to think. Not what to think. 
-            </p>
+            <p>Ethical AI that teaches you how to think. Not what to think.</p>
             <div className="hero-actions">
               <button
                 className="btn-primary"
@@ -93,12 +89,26 @@ const App: React.FC = () => {
 
         {/* FEATURES */}
         <section id="features" className="section">
-          <h2>Built at the Harvard Innovation Lab</h2>
+          <h2 className="section-title">
+            <a
+              href="https://innovationlabs.harvard.edu/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="unstyled-link"
+              style={{
+                color: "inherit",
+                textDecoration: "none",
+              }}  
+            >
+              Built at Harvard Innovation Labs
+            </a>
+          </h2>
           <div className="feature-grid">
             <div className="feature-card">
               <h3>Socratic Tutoring</h3>
               <p>
-                Guided questions that help you actually understand concepts instead of answering for you.
+                Guided questions that help you actually understand concepts
+                instead of answering for you.
               </p>
             </div>
             <div className="feature-card">
@@ -111,7 +121,8 @@ const App: React.FC = () => {
             <div className="feature-card">
               <h3>Machine Learning </h3>
               <p>
-                Powered by a custom Llama-3.2-3B model trained in house using Tinker by Thinking Machines Lab.
+                Powered by a custom Llama-3.2-3B model trained in house using
+                Tinker by Thinking Machines Lab.
               </p>
             </div>
           </div>
@@ -124,7 +135,6 @@ const App: React.FC = () => {
             <p className="contact-subtitle">Supercharge your learning.</p>
 
             <form className="contact-form" onSubmit={handleContactSubmit}>
-           
               <input
                 name="email"
                 type="email"
@@ -176,8 +186,9 @@ const App: React.FC = () => {
             </div>
 
             <div className="chat-hero">
-              <div className="chat-avatar"><IoPersonCircleSharp size={60}/>
-</div>
+              <div className="chat-avatar">
+                <IoPersonCircleSharp size={60} />
+              </div>
               <p className="chat-status">
                 "We usually reply in a few minutes at this time of day."
               </p>

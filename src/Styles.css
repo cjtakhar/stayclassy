@@ -188,6 +188,28 @@ body {
   border-color: var(--accent);
 }
 
+/* Harvard Innovation Lab link */
+.section-title {
+  /* optional: center or style your h2 as before */
+}
+
+.section-title .unstyled-link {
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;           /* <– important for transform */
+  transition:
+    color 180ms ease,
+    transform 180ms ease,
+    text-shadow 180ms ease;
+}
+
+/* Hover effect: brighter + slight glow + scale */
+.section-title .unstyled-link:hover {
+  color: #ffffff;                  /* ensure full white */
+  transform: scale(1.04);          /* subtle but noticeable */
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+}
+
 /* Sections */
 
 .section {
