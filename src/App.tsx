@@ -109,8 +109,7 @@ const App: React.FC = () => {
               
               <h3>Socratic Tutoring</h3>
               <p>
-                Guided questions that help you understand complex concepts
-                instead of just answering for you.
+                Guided questions that help you understand complex concepts.
               </p>
             </div>
             <div className="feature-card">
@@ -123,7 +122,7 @@ const App: React.FC = () => {
             <div className="feature-card">
               <h3>Machine Learning </h3>
               <p>
-                Powered by a custom Llama-3.2-3B model trained in house using
+                Custom Llama-3.2-3B model trained with
                 Tinker by Thinking Machines Lab.
               </p>
             </div>

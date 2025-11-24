@@ -205,8 +205,7 @@ body {
 
 /* Hover effect: brighter + slight glow + scale */
 .section-title .unstyled-link:hover {
-  color: #ffffff;                  /* ensure full white */
-  transform: scale(1.04);          /* subtle but noticeable */
+  color: #ffffff;                
   text-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
 }
 
