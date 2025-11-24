@@ -124,12 +124,7 @@ const App: React.FC = () => {
             <p className="contact-subtitle">Supercharge your learning.</p>
 
             <form className="contact-form" onSubmit={handleContactSubmit}>
-              <input
-                name="name"
-                type="text"
-                placeholder="Name"
-                className="contact-input"
-              />
+           
               <input
                 name="email"
                 type="email"
