@@ -133,7 +133,6 @@ const App: React.FC = () => {
         <section id="contact" className="contact-section">
           <div className="contact-inner">
             <h2>Get on the list</h2>
-            <p className="contact-subtitle">Supercharge your learning.</p>
 
             <form className="contact-form" onSubmit={handleContactSubmit}>
               <input
