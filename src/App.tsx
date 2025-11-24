@@ -107,7 +107,7 @@ const App: React.FC = () => {
           <div className="feature-grid">
             <div className="feature-card">
               
-              <h3>Socratic Methodology</h3>
+              <h3>Socratic Tutoring</h3>
               <p>
                 Guided questions that help you understand complex concepts.
               </p>
