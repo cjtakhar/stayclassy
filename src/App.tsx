@@ -115,7 +115,7 @@ const App: React.FC = () => {
               <h3>Ethical by Design</h3>
               <p>
                 Built to increase critical thinking and amplify your ability to
-                learn —— Not replace it.
+                learn not replace it.
               </p>
             </div>
             <div className="feature-card">
