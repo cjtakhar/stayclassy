@@ -6,9 +6,7 @@ import { IoPersonCircleSharp } from "react-icons/io5";
 
 const API_BASE_URL =
   import.meta.env.VITE_API_BASE_URL ||
-  (window.location.hostname === "localhost"
-    ? "http://localhost:5001"
-    : "https://classy-contact-api.onrender.com");
+  "https://classy-contact-api.onrender.com";
 
 const postMessage = async (payload: {
   email: string;
