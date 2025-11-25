@@ -108,7 +108,7 @@ const App: React.FC = () => {
           <div className="hero-content">
             <h1>Elevate Your Intelligence</h1>
             <h3>Socrates v1.0</h3>
-            <p>The ethical AI platform that teaches you how to think&mdash; not what to think.</p>
+            <p>The ethical AI platform that teaches you how to think &mdash; not what to think.</p>
             <div className="hero-actions">
               <button
                 className="btn-primary"
@@ -142,14 +142,14 @@ const App: React.FC = () => {
           </h2>
           <div className="feature-grid">
             <div className="feature-card">
-              <h3>Socratic Methodology</h3>
+              <h3>Socratic Method</h3>
               <p>Guided questions that help you understand complex concepts.</p>
             </div>
             <div className="feature-card">
               <h3>Ethical by Design</h3>
               <p>
-                Built to increase critical thinking and amplify your ability to
-                learn not replace it.
+                Built to amplify your ability to
+                learn &mdash; not replace it.
               </p>
             </div>
             <div className="feature-card">
