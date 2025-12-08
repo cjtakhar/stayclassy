@@ -137,7 +137,7 @@ const App: React.FC = () => {
                 textDecoration: "none",
               }}
             >
-              Built at Harvard Innovation Labs
+            
             </a>
           </h2>
           <div className="feature-grid">
