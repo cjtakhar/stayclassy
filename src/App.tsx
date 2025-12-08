@@ -24,7 +24,6 @@ const postMessage = async (payload: {
   }
 };
 
-
 const App: React.FC = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
 
@@ -34,7 +33,10 @@ const App: React.FC = () => {
     type: "success" | "error";
   } | null>(null);
 
-  const showToast = (message: string, type: "success" | "error" = "success") => {
+  const showToast = (
+    message: string,
+    type: "success" | "error" = "success"
+  ) => {
     setToast({ message, type });
     setTimeout(() => setToast(null), 4000); // auto-hide after 4s
   };
@@ -108,7 +110,10 @@ const App: React.FC = () => {
           <div className="hero-content">
             <h1>Elevate Your Intelligence</h1>
             <h3>Socrates v1.0</h3>
-            <p>The ethical AI platform that teaches you how to think &mdash; not what to think.</p>
+            <p>
+              The ethical AI platform that teaches you how to think &mdash; not
+              what to think.
+            </p>
             <div className="hero-actions">
               <button
                 className="btn-primary"
@@ -126,20 +131,6 @@ const App: React.FC = () => {
         </section>
 
         <section id="features" className="section">
-          <h2 className="section-title">
-            <a
-              href="https://innovationlabs.harvard.edu/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="unstyled-link"
-              style={{
-                color: "inherit",
-                textDecoration: "none",
-              }}
-            >
-            
-            </a>
-          </h2>
           <div className="feature-grid">
             <div className="feature-card">
               <h3>Socratic Method</h3>
@@ -148,8 +139,7 @@ const App: React.FC = () => {
             <div className="feature-card">
               <h3>Ethical by Design</h3>
               <p>
-                Built to amplify your ability to
-                learn &mdash; not replace it.
+                Built to amplify your ability to learn &mdash; not replace it.
               </p>
             </div>
             <div className="feature-card">
@@ -192,6 +182,13 @@ const App: React.FC = () => {
       {/* FOOTER */}
       <footer className="footer">
         <span>© {new Date().getFullYear()} Classy AI</span>
+        <span>
+          <p
+            style={{ fontSize: "0.85rem", opacity: 0.65, marginBottom: "2rem" }}
+          >
+            Incubated at Harvard Innovation Labs
+          </p>
+        </span>
       </footer>
 
       {/* INTERCOM-LIKE CHAT BUBBLE */}
@@ -319,9 +316,7 @@ const App: React.FC = () => {
 
       {/* 🔔 Toast renderer */}
       {toast && (
-        <div className={`toast toast-${toast.type}`}>
-          {toast.message}
-        </div>
+        <div className={`toast toast-${toast.type}`}>{toast.message}</div>
       )}
     </div>
   );
