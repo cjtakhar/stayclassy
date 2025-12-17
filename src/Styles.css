@@ -100,7 +100,7 @@ body {
 /* Hero */
 
 .hero {
-  margin-top: 64px; /* space for nav */
+  margin-top: 20px; 
   min-height: 75vh;
   display: flex;
   align-items: center;
@@ -382,7 +382,7 @@ body {
 }
 
 .hidden-field {
-  display: none !important;
+  display: none;
 }
 
 /* Stack contact bottom row on mobile */

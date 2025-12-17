@@ -183,7 +183,7 @@ const App: React.FC = () => {
               <div className="contact-bottom-row">
                 <label className="contact-checkbox">
                   <input type="checkbox" />
-                  <span>Sign up for our email list for updates and more.</span>
+                  <span>Sign up for updates and more</span>
                 </label>
                 <button type="submit" className="contact-submit">
                   SEND
