@@ -12,6 +12,7 @@ const postMessage = async (payload: {
   email: string;
   message: string;
   source: "contact" | "chat";
+  confirm_email_address?: string;
 }) => {
   const res = await fetch(`${API_BASE_URL}/api/contact`, {
     method: "POST",
@@ -46,12 +47,14 @@ const App: React.FC = () => {
     const form = e.currentTarget;
     const data = new FormData(form);
     const email = (data.get("email") as string) || "";
+    const honeypot = (data.get("confirm_email_address") as string) || "";
 
     try {
       await postMessage({
         email,
         message: `New waitlist signup from: ${email}`,
         source: "contact",
+        confirm_email_address: honeypot,
       });
       // ✅ Toast instead of alert
       showToast("You're on the Classy AI waitlist ✨", "success");
@@ -68,12 +71,14 @@ const App: React.FC = () => {
     const data = new FormData(form);
     const email = (data.get("chatEmail") as string) || "";
     const message = (data.get("chatMessage") as string) || "";
+    const honeypot = (data.get("confirm_email_address") as string) || "";
 
     try {
       await postMessage({
         email,
         message,
         source: "chat",
+        confirm_email_address: honeypot,
       });
       // ✅ Toast instead of alert
       showToast("Message sent! We’ll get back to you soon 💌", "success");
@@ -158,6 +163,16 @@ const App: React.FC = () => {
             <h2>Join the list.</h2>
 
             <form className="contact-form" onSubmit={handleContactSubmit}>
+              {/* Honeypot field */}
+              <input
+                name="confirm_email_address"
+                type="text"
+                title="confirm_email"
+                aria-hidden="true"
+                tabIndex={-1}
+                autoComplete="off"
+                className="hidden-field"
+              />
               <input
                 name="email"
                 type="email"

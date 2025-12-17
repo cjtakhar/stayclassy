@@ -381,6 +381,10 @@ body {
   transform: translateY(-1px);
 }
 
+.hidden-field {
+  display: none !important;
+}
+
 /* Stack contact bottom row on mobile */
 
 @media (max-width: 640px) {
