@@ -121,10 +121,6 @@ const App: React.FC = () => {
               The ethical AI platform that teaches you how to think &mdash; not
               what to think.
             </p>
-            <p>
-              Empowering students and lifelong learners with guided questions
-              to master complex subjects through active learning.
-            </p>
             <div className="hero-actions">
               <button
                 className="btn-primary"
