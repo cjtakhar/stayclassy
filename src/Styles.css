@@ -135,6 +135,14 @@ body {
 }
 
 .hero-content h1 {
+  font-size: clamp(1.75rem, 3vw, 2.6rem);
+  line-height: 1.05;
+  margin-bottom: 10px;
+  opacity: 0.25;
+  color: #ffffff;
+}
+
+.hero-content h2 {
   font-size: clamp(2.75rem, 4vw, 3.6rem);
   line-height: 1.05;
   margin-bottom: 18px;
