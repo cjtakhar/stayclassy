@@ -94,7 +94,10 @@ const App: React.FC = () => {
     <div className="page">
       {/* NAV */}
       <header className="nav">
-        <div className="nav-logo">Classy AI</div>
+        <div className="nav-logo">
+          Classy AI
+          <sup className="tm">™</sup>
+        </div>
         <button
           className="nav-cta"
           onClick={() =>
