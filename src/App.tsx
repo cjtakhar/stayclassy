@@ -96,7 +96,6 @@ const App: React.FC = () => {
       <header className="nav">
         <div className="nav-logo">
           Classy AI
-          <sup className="tm">™</sup>
         </div>
         <button
           className="nav-cta"
@@ -199,7 +198,7 @@ const App: React.FC = () => {
 
       {/* FOOTER */}
       <footer className="footer">
-        <span>© {new Date().getFullYear()} Classy AI</span>
+        <span>© {new Date().getFullYear()} Classy AI™</span>
         <span>
           <p
             style={{ fontSize: "0.85rem", opacity: 0.65, marginBottom: "2rem" }}
