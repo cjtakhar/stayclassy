@@ -117,9 +117,13 @@ const App: React.FC = () => {
           <div className="hero-content">
             <h1>Elevate Your Intelligence</h1>
             <h3>Socrates v1.0</h3>
-            <p>
+            <p className="hero-subtitle">
               The ethical AI platform that teaches you how to think &mdash; not
               what to think.
+            </p>
+            <p>
+              Empowering students and lifelong learners with guided questions
+              to master complex subjects through active learning.
             </p>
             <div className="hero-actions">
               <button
