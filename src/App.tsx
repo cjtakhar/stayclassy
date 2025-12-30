@@ -96,8 +96,9 @@ const App: React.FC = () => {
       {/* NAV */}
       <header className="nav">
       <div className="nav-logo">
+        <img src={logoImage} alt="Classy AI Logo" />
           Classy AI
-          <img src={logoImage} alt="Classy AI Logo" />
+          
         </div>
         <button
           className="nav-cta"
