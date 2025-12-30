@@ -119,8 +119,7 @@ const App: React.FC = () => {
             <h2>Elevate Your Intelligence</h2>
             <h3>Socrates v1.0</h3>
             <p className="hero-subtitle">
-              The ethical AI platform that teaches you how to think &mdash; not
-              what to think.
+              An ethical AI learning platform designed to build reasoning — not replace it.
             </p>
             <div className="hero-actions">
               <button
@@ -152,7 +151,7 @@ const App: React.FC = () => {
             <div className="feature-card">
               <h3>Ethical by Design</h3>
               <p>
-                Built to amplify your ability to learn &mdash; not replace it.
+                Built to guide reasoning — not deliver answers.
               </p>
             </div>
             <div className="feature-card">
