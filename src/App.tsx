@@ -98,7 +98,6 @@ const App: React.FC = () => {
       <div className="nav-logo">
         <img src={logoImage} alt="Classy AI Logo" />
           Classy AI
-          
         </div>
         <button
           className="nav-cta"
@@ -122,7 +121,7 @@ const App: React.FC = () => {
             <h2>Elevate Your Intelligence</h2>
             <h3>Socrates v1.0</h3>
             <p className="hero-subtitle">
-              An ethical AI learning platform designed to build reasoning — not replace it.
+              The ethical AI platform that teaches how to think — not what to think.
             </p>
             <div className="hero-actions">
               <button
@@ -154,13 +153,13 @@ const App: React.FC = () => {
             <div className="feature-card">
               <h3>Ethical by Design</h3>
               <p>
-                Built to amplify your ability to learn instead of providing answers.
+                Built to amplify your ability to learn — not replace it.
               </p>
             </div>
             <div className="feature-card">
               <h3>Bounded Learning</h3>
               <p>
-                Custom model trained to prevent hallucinations.
+                Custom model trained with Thinking Machines Lab to prevent hallucinations.
               </p>
             </div>
           </div>
