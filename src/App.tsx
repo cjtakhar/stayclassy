@@ -158,7 +158,7 @@ const App: React.FC = () => {
             <div className="feature-card">
               <h3>Bounded Learning</h3>
               <p>
-                Custom model trained to eliminate hallucinations.
+                Custom model trained to prevent hallucinations.
               </p>
             </div>
           </div>
