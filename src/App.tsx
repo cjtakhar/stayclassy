@@ -1,6 +1,7 @@
 // src/App.tsx
 import React, { useState } from "react";
 import heroImage from "./assets/classyai-lg.jpg";
+import logoImage from "./assets/logo-nav.png";
 import { LuMessageSquare } from "react-icons/lu";
 import { IoPersonCircleSharp } from "react-icons/io5";
 
@@ -94,8 +95,9 @@ const App: React.FC = () => {
     <div className="page">
       {/* NAV */}
       <header className="nav">
-        <div className="nav-logo">
+      <div className="nav-logo">
           Classy AI
+          <img src={logoImage} alt="Classy AI Logo" />
         </div>
         <button
           className="nav-cta"

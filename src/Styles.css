@@ -61,6 +61,17 @@ body {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;              /* Space between text and logo */
+  cursor: pointer;
+}
+
+/* Add this new rule for the image */
+.nav-logo img {
+  height: 32px;           /* Adjust size here */
+  width: auto;
+  display: block;
 }
 
 .nav-links {
