@@ -151,7 +151,7 @@ const App: React.FC = () => {
             <div className="feature-card">
               <h3>Ethical by Design</h3>
               <p>
-                Built to amplify your ability to learn — not deliver answers.
+                Built to amplify your ability to learn instead of providing answers.
               </p>
             </div>
             <div className="feature-card">
