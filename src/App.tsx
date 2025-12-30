@@ -131,9 +131,14 @@ const App: React.FC = () => {
                     ?.scrollIntoView({ behavior: "smooth" })
                 }
               >
-                Join the Waitlist
+                Early Access
               </button>
-              {/* <button className="btn-secondary">View Demo</button> */}
+              {<button 
+                className="btn-secondary"
+                onClick={() => window.open("https://arxiv.org/abs/2502.00341", "_blank", "noopener,noreferrer")}
+              >
+                Research
+              </button>}
             </div>
           </div>
         </section>
@@ -151,10 +156,9 @@ const App: React.FC = () => {
               </p>
             </div>
             <div className="feature-card">
-              <h3>Machine Learning </h3>
+              <h3>Bounded Learning</h3>
               <p>
-                Custom Llama-3.2-3B model trained with Tinker by Thinking
-                Machines Lab.
+                Custom model trained to eliminate hallucinations.
               </p>
             </div>
           </div>
