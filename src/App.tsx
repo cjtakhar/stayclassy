@@ -1,4 +1,3 @@
-// src/App.tsx
 import React, { useState } from "react";
 import heroImage from "./assets/classyai-lg.jpg";
 import logoImage from "./assets/logo-nav.png";
@@ -8,6 +7,27 @@ import { IoPersonCircleSharp } from "react-icons/io5";
 const API_BASE_URL =
   import.meta.env.VITE_API_BASE_URL ||
   "https://classy-contact-api.onrender.com";
+
+// --- NEW COMPONENT: TOP BANNER ---
+const TopBanner = () => {
+  return (
+    <div className="top-banner">
+      <a
+        href="https://innovationlabs.harvard.edu/articles/fall-2025-startup-milestones-from-the-harvard-innovation-labs"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="top-banner-content"
+      >
+        {/* <span className="top-banner-badge">Update</span> */}
+        <span className="top-banner-text">
+          Featured in Harvard Innovation Labs 2025 Venture Milestones
+        </span>
+        <span className="top-banner-arrow">→</span>
+      </a>
+    </div>
+  );
+};
+// ---------------------------------
 
 const postMessage = async (payload: {
   email: string;
@@ -40,7 +60,7 @@ const App: React.FC = () => {
     type: "success" | "error" = "success"
   ) => {
     setToast({ message, type });
-    setTimeout(() => setToast(null), 4000); // auto-hide after 4s
+    setTimeout(() => setToast(null), 4000);
   };
 
   const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -57,7 +77,6 @@ const App: React.FC = () => {
         source: "contact",
         confirm_email_address: honeypot,
       });
-      // ✅ Toast instead of alert
       showToast("You're on the Classy AI waitlist ✨", "success");
       form.reset();
     } catch (err) {
@@ -81,7 +100,6 @@ const App: React.FC = () => {
         source: "chat",
         confirm_email_address: honeypot,
       });
-      // ✅ Toast instead of alert
       showToast("Message sent! We’ll get back to you soon 💌", "success");
       form.reset();
       setIsChatOpen(false);
@@ -93,10 +111,13 @@ const App: React.FC = () => {
 
   return (
     <div className="page">
+      {/* 1. INSERT BANNER HERE */}
+      <TopBanner />
+
       {/* NAV */}
       <header className="nav">
-      <div className="nav-logo">
-        <img src={logoImage} alt="Classy AI Logo" />
+        <div className="nav-logo">
+          <img src={logoImage} alt="Classy AI Logo" />
           Classy AI
         </div>
         <button
@@ -133,16 +154,25 @@ const App: React.FC = () => {
               >
                 Early Access
               </button>
-              {<button 
-                className="btn-secondary"
-                onClick={() => window.open("https://arxiv.org/abs/2502.00341", "_blank", "noopener,noreferrer")}
-              >
-                Research
-              </button>}
+              {
+                <button
+                  className="btn-secondary"
+                  onClick={() =>
+                    window.open(
+                      "https://arxiv.org/abs/2502.00341",
+                      "_blank",
+                      "noopener,noreferrer"
+                    )
+                  }
+                >
+                  Research
+                </button>
+              }
             </div>
           </div>
         </section>
 
+        {/* ... Rest of your sections (Features, Contact, Footer) ... */}
         <section id="features" className="section">
           <div className="feature-grid">
             <div className="feature-card">
@@ -151,26 +181,23 @@ const App: React.FC = () => {
             </div>
             <div className="feature-card">
               <h3>Ethical by Design</h3>
-              <p>
-                Built to amplify your ability to learn — not replace it.
-              </p>
+              <p>Built to amplify your ability to learn — not replace it.</p>
             </div>
             <div className="feature-card">
               <h3>Bounded Learning</h3>
               <p>
-                Custom model trained with Thinking Machines Lab to prevent hallucinations.
+                Custom model trained with Thinking Machines Lab to prevent
+                hallucinations.
               </p>
             </div>
           </div>
         </section>
 
-        {/* CONTACT – “halfway down” */}
         <section id="contact" className="contact-section">
           <div className="contact-inner">
             <h2>Join the list.</h2>
 
             <form className="contact-form" onSubmit={handleContactSubmit}>
-              {/* Honeypot field */}
               <input
                 name="confirm_email_address"
                 type="text"
@@ -281,7 +308,6 @@ const App: React.FC = () => {
                 background: "transparent",
               }}
             >
-              {/* Message box */}
               <input
                 name="chatMessage"
                 type="text"
@@ -289,8 +315,6 @@ const App: React.FC = () => {
                 placeholder="Enter your question here"
                 required
               />
-
-              {/* Email box */}
               <input
                 name="chatEmail"
                 type="email"
@@ -298,8 +322,6 @@ const App: React.FC = () => {
                 placeholder="Your email so we can get back to you"
                 required
               />
-
-              {/* Buttons */}
               <div
                 style={{
                   display: "flex",
@@ -336,7 +358,6 @@ const App: React.FC = () => {
         </button>
       </div>
 
-      {/* 🔔 Toast renderer */}
       {toast && (
         <div className={`toast toast-${toast.type}`}>{toast.message}</div>
       )}
