@@ -117,8 +117,7 @@ const App: React.FC = () => {
         >
           <div className="hero-overlay" />
           <div className="hero-content">
-            <h1>Classy AI</h1>
-            <h2>Elevate Your Intelligence</h2>
+            <h1>Elevate Your Intelligence</h1>
             <h3>Socrates v1.0</h3>
             <p className="hero-subtitle">
               The ethical AI platform that teaches how to think — not what to think.
