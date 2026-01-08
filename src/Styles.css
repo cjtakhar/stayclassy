@@ -94,6 +94,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 14px 32px;
+  -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
   background: linear-gradient(
     to bottom,
@@ -159,7 +160,7 @@ body {
 
 .hero {
   margin-top: 0px; 
-  min-height: 65vh;
+  min-height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;

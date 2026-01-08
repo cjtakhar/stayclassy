@@ -9,24 +9,24 @@ const API_BASE_URL =
   "https://classy-contact-api.onrender.com";
 
 // --- NEW COMPONENT: TOP BANNER ---
-const TopBanner = () => {
-  return (
-    <div className="top-banner">
-      <a
-        href="https://innovationlabs.harvard.edu/articles/fall-2025-startup-milestones-from-the-harvard-innovation-labs"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="top-banner-content"
-      >
-        {/* <span className="top-banner-badge">Update</span> */}
-        <span className="top-banner-text">
-          Featured in Harvard Innovation Labs 2025 Venture Milestones
-        </span>
-        <span className="top-banner-arrow">→</span>
-      </a>
-    </div>
-  );
-};
+// const TopBanner = () => {
+//   return (
+//     <div className="top-banner">
+//       <a
+//         href="https://innovationlabs.harvard.edu/articles/fall-2025-startup-milestones-from-the-harvard-innovation-labs"
+//         target="_blank"
+//         rel="noopener noreferrer"
+//         className="top-banner-content"
+//       >
+//         {/* <span className="top-banner-badge">Update</span> */}
+//         <span className="top-banner-text">
+//           Featured in Harvard Innovation Labs 2025 Venture Milestones
+//         </span>
+//         <span className="top-banner-arrow">→</span>
+//       </a>
+//     </div>
+//   );
+// };
 // ---------------------------------
 
 const postMessage = async (payload: {
@@ -112,7 +112,7 @@ const App: React.FC = () => {
   return (
     <div className="page">
       {/* 1. INSERT BANNER HERE */}
-      <TopBanner />
+      {/* <TopBanner /> */}
 
       {/* NAV */}
       <header className="nav">
