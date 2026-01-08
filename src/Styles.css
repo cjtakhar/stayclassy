@@ -111,6 +111,8 @@ body {
   font-size: 0.9rem;
   display: flex;
   align-items: center;
+  text-decoration: none; 
+  color: inherit;
   gap: 10px;              /* Space between text and logo */
   cursor: pointer;
 }
@@ -146,6 +148,7 @@ body {
   padding: 8px 18px;
   font-size: 0.85rem;
   cursor: pointer;
+  text-decoration: none;
   transition: background var(--transition), color var(--transition),
     transform var(--transition);
 }
@@ -226,6 +229,7 @@ body {
   border: 1px solid transparent;
   padding: 10px 22px;
   font-size: 0.95rem;
+  text-decoration: none;
   cursor: pointer;
   transition: background var(--transition), color var(--transition),
     border-color var(--transition), transform var(--transition),
@@ -778,3 +782,92 @@ body {
   }
 }
 
+/* --- Startup Story page --- */
+
+.story-card {
+  margin-top: 18px;
+  max-width: 900px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  background: linear-gradient(
+    to bottom right,
+    rgba(2, 6, 23, 0.92),
+    rgba(2, 6, 23, 0.55)
+  );
+  box-shadow: var(--shadow-soft);
+  padding: 16px;
+}
+
+.story-textarea {
+  width: 100%;
+  min-height: 420px;
+  resize: vertical;
+  border-radius: 14px;
+  border: 1px solid var(--border-subtle);
+  background: rgba(15, 23, 42, 0.65);
+  color: var(--text-main);
+  padding: 14px;
+  font-size: 1rem;
+  line-height: 1.55;
+  outline: none;
+}
+
+.story-textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.2);
+}
+
+.story-meta {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.story-link {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1rem;
+}
+
+.story-list {
+  color: var(--text-muted);
+}
+
+/* --- Our Story CTA in hero --- */
+.story-cta {
+  margin-top: 18px;
+}
+
+.story-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  transition: color var(--transition), transform var(--transition);
+}
+
+.story-link:hover {
+  color: var(--text-main);
+  transform: translateY(-1px);
+}
+
+.story-kicker {
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.story-arrow {
+  opacity: 0.9;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+.story-link:hover .story-arrow {
+  transform: translateX(4px);
+  opacity: 1;
+}
